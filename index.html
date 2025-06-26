@@ -28,7 +28,7 @@
       overflow-x: hidden;
     }
 
-    /* Pré-carregamento */
+    /* Pré-carregamento com animação da logo */
     #preloader {
       position: fixed;
       top: 0;
@@ -42,10 +42,16 @@
       z-index: 9999;
     }
 
-    #preloader h2 {
-      font-size: 24px;
-      color: var(--lilas);
-      font-weight: bold;
+    #preloader img {
+      width: 80px;
+      height: auto;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     header {
@@ -213,7 +219,10 @@
 </head>
 <body>
 
-<div id="preloader"><h2>Carregando...</h2></div>
+<!-- Pré-carregamento com logo -->
+<div id="preloader">
+  <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Logo EmoTeen" />
+</div>
 
 <header>
   <div class="logo-container">
@@ -262,7 +271,7 @@
 </a>
 
 <script>
-  // Remove loader ao carregar
+  // Remove o preloader após carregamento
   window.addEventListener("load", () => {
     const loader = document.getElementById("preloader");
     if (loader) loader.style.display = "none";
