@@ -4,191 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EmoTeen • Saúde emocional para jovens</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --azul-claro: #E0F7FA;
-      --lilas: #7A5FC0;
-      --verde-menta: #6FCF97;
-      --texto: #333;
-      --branco: #fff;
+      --azul-claro: rgb(224, 247, 250);     /* #E0F7FA */
+      --lilas: rgb(122, 95, 192);           /* #7A5FC0 */
+      --verde-menta: rgb(111, 207, 151);    /* #6FCF97 */
+      --texto: rgb(51, 51, 51);             /* #333 */
+      --branco: rgb(255, 255, 255);         /* #fff */
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: 'Quicksand', sans-serif;
-      background: var(--azul-claro);p
+      font-family: 'Poppins', sans-serif;
+      background: var(--azul-claro);
       color: var(--texto);
       line-height: 1.6;
     }
-   /* Ajuste base para mobile */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 20px;
-  }
-  nav a {
-    margin-left: 0;
-    margin-right: 15px;
-    font-size: 14px;
-  }
-  .hero h2 {
-    font-size: 24px;
-  }
-  section {
-    padding: 40px 15px;
-  }
-  .cta {
-    padding: 30px 15px;
-  }
-}
-    @keyframes fadeSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-.hero h2,
-.hero p,
-section h3,
-section p,
-.cta h4,
-.cta p,
-.cta a {
-  opacity: 0;
-  animation: fadeSlideIn 0.8s ease forwards;
-}
-
-.hero h2 {
-  animation-delay: 0.2s;
-}
-.hero p {
-  animation-delay: 0.4s;
-}
-section h3 {
-  animation-delay: 0.6s;
-}
-section p {
-  animation-delay: 0.8s;
-}
-.cta h4 {
-  animation-delay: 1s;
-}
-.cta p {
-  animation-delay: 1.2s;
-}
-.cta a {
-  animation-delay: 1.4s;
-}
-    nav a {
-  position: relative;
-  transition: color 0.3s ease;
-}
-nav a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: var(--verde-menta);
-  transition: width 0.3s ease;
-}
-nav a:hover {
-  color: var(--verde-menta);
-}
-nav a:hover::after {
-  width: 100%;
-}
-
-.cta a {
-  box-shadow: 0 4px 8px rgba(111, 207, 151, 0.3);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.cta a:hover {
-  background-color: #57b376; /* tom mais escuro de verde-menta */
-  box-shadow: 0 6px 12px rgba(87, 179, 118, 0.5);
-}
     header {
-  background: var(--branco);
-  padding: 20px 40px;
-  display: flex;
-  align-items: center;
-  border-bottom: 3px solid var(--verde-menta);
-  box-shadow: 0 2px 6px rgba(122, 95, 192, 0.15);
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* espaço menor entre logo e texto */
-}
-
-.logo {
-  width: 48px; /* tamanho da imagem */
-  height: auto;
-}
-
-header h1 {
-  font-size: 28px;
-  color: var(--lilas);
-  font-weight: 700;
-  margin: 0;
-}
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--lilas);
-      font-weight: 500;
+      background: var(--branco);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      border-bottom: 3px solid var(--verde-menta);
+      box-shadow: 0 2px 6px rgba(122, 95, 192, 0.15);
     }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 70px;
+      height: auto;
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 30px;
+      color: var(--lilas);
+      font-weight: 700;
+      margin: 0;
+    }
+
     .hero {
       padding: 60px 20px;
       text-align: center;
     }
+
     .hero h2 {
       font-size: 32px;
       color: var(--lilas);
       margin-bottom: 20px;
     }
+
     .hero p {
       font-size: 18px;
       color: #444;
       max-width: 600px;
       margin: auto;
     }
+
     section {
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
     }
+
     section h3 {
       font-size: 28px;
       color: var(--verde-menta);
       margin-bottom: 20px;
     }
+
     section p {
       font-size: 17px;
       margin-bottom: 20px;
     }
+
     .cta {
       text-align: center;
       padding: 40px;
       background: var(--lilas);
       color: var(--branco);
     }
+
     .cta h4 {
       font-size: 24px;
       margin-bottom: 10px;
     }
+
     .cta a {
       display: inline-block;
       margin-top: 10px;
@@ -198,7 +111,13 @@ header h1 {
       text-decoration: none;
       font-weight: bold;
       border-radius: 8px;
+      transition: background 0.3s ease;
     }
+
+    .cta a:hover {
+      background: rgb(91, 177, 130);
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -206,16 +125,33 @@ header h1 {
       font-size: 14px;
       color: #666;
     }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 26px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-container {
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-  <div class="logo-container">
-    <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Logo EmoTeen" class="logo" />
-    <h1>EmoTeen</h1>
-  </div>
-</header>
+    <div class="logo-container">
+      <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Logo EmoTeen" class="logo" />
+      <h1>EmoTeen</h1>
+    </div>
+  </header>
+
   <section class="hero">
     <h2>Saúde emocional, aprendizado com leveza.</h2>
     <p>Somos a EmoTeen, uma startup brasileira de healthtech que está inovando a forma como cuidamos da saúde mental de adolescentes nas escolas particulares.</p>
