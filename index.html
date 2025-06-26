@@ -1,168 +1,163 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>EmoTeen • Saúde emocional futurista</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EmoTeen • Saúde emocional para jovens</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #333;
+    }
 
-<!-- Fonte futurista Orbitron -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+    }
 
-<style>
-  :root {
-    --bg-dark: rgb(10,12,25);
-    --neon-green: rgb(57,255,20);
-    --neon-blue: rgb(0,200,255);
-    --neon-purple: rgb(180,0,255);
-    --text-light: rgb(230,230,240);
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    font-family: 'Orbitron', sans-serif;
-    background: var(--bg-dark);
-    color: var(--text-light);
-    overflow-x: hidden;
-  }
-  header {
-    display:flex;
-    align-items:center;
-    padding:20px 40px;
-    background: rgba(10,12,25,0.9);
-  }
-  .logo-container {
-    display:flex; align-items:center; gap:8px;
-  }
-  .logo {
-    width:70px;
-    filter: drop-shadow(0 0 8px var(--neon-blue));
-  }
-  header h1 {
-    font-size:36px;
-    color: var(--neon-green);
-  }
-  .hero {
-    text-align:center;
-    padding:80px 20px;
-  }
-  .hero h2 {
-    font-size:48px;
-    color: var(--neon-blue);
-    text-shadow: 0 0 8px var(--neon-blue);
-  }
-  .hero p {
-    font-size:20px;
-    color: var(--text-light);
-    max-width:700px;
-    margin:20px auto;
-    line-height:1.4;
-  }
-  .cta a {
-    display:inline-block;
-    padding:16px 32px;
-    margin-top:20px;
-    background: var(--neon-green);
-    color: var(--bg-dark);
-    font-size:18px;
-    border: none;
-    border-radius:30px;
-    text-decoration:none;
-    box-shadow: 0 0 12px var(--neon-green), 0 0 24px var(--neon-green);
-    transition: transform .2s, box-shadow .2s;
-    font-family: 'Orbitron', sans-serif;
-  }
-  .cta a:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
-  }
-  section {
-    padding:60px 20px;
-    max-width:1000px;
-    margin:auto;
-  }
-  section h3 {
-    font-size:32px;
-    color: var(--neon-purple);
-    text-shadow:0 0 6px var(--neon-purple);
-    margin-bottom:20px;
-  }
-  section p {
-    font-size:18px;
-    margin-bottom:16px;
-    color: var(--text-light);
-    line-height:1.5;
-  }
-  footer {
-    text-align:center;
-    padding:20px;
-    background: rgba(10,12,25,0.9);
-    font-size:14px;
-    color: var(--text-light);
-  }
-  /* WhatsApp flutuante futurista com logo SVG */
-  .whatsapp-float {
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:60px; height:60px;
-    background: var(--neon-green);
-    border-radius:50%;
-    box-shadow:0 0 12px var(--neon-green), 0 0 24px var(--neon-green);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:999;
-    transition: transform .2s;
-  }
-  .whatsapp-float:hover {
-    transform: scale(1.1);
-  }
-  .whatsapp-float svg {
-    width:32px; height:32px;
-    filter: drop-shadow(0 0 4px var(--bg-dark));
-  }
-</style>
+    .logo {
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: #f2f2f2;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta {
+      margin-top: 30px;
+    }
+
+    .cta a {
+      background: #111;
+      color: #fff;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .cta a:hover {
+      background: #333;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section h3 {
+      font-size: 24px;
+      color: #111;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    /* Botão flutuante WhatsApp com ícone */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: transform 0.2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-container">
-    <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Logo EmoTeen" class="logo">
-    <h1>EmoTeen</h1>
-  </div>
+  <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Logo EmoTeen" class="logo" />
+  <h1>EmoTeen</h1>
 </header>
 
 <section class="hero">
-  <h2>Bem-vindo ao futuro emocional!</h2>
-  <p>Na EmoTeen, trazemos tecnologia e empatia para fortalecer a saúde mental dos jovens de forma inovadora, leve e segura.</p>
-  <div class="cta"><a href="mailto:contato@emoteen.com.br">Transforme sua escola</a></div>
+  <h2>Bem-vindo ao futuro da saúde emocional</h2>
+  <p>Unimos tecnologia, empatia e inovação para cuidar do bem-estar emocional dos jovens com inteligência e proximidade.</p>
+  <div class="cta">
+    <a href="mailto:contato@emoteen.com.br">Quero saber mais</a>
+  </div>
 </section>
 
 <section id="sobre">
   <h3>Quem somos</h3>
-  <p>Somos uma healthtech que une IA, psicologia e UX para criar ambientes seguros e acolhedores nas escolas.</p>
+  <p>A EmoTeen é uma iniciativa moderna para promover a saúde mental nas escolas de forma leve, tecnológica e eficaz.</p>
 </section>
 
 <section id="beneficios">
   <h3>Benefícios</h3>
-  <p><strong>Alunos:</strong> plataforma gamificada e interação com psicólogos reais.</p>
-  <p><strong>Escolas:</strong> painel de gestão e alertas preventivos.</p>
-  <p><strong>Pais:</strong> mais segurança e tranquilidade no desenvolvimento dos filhos.</p>
+  <p><strong>Para alunos:</strong> triagem emocional, conexão com psicólogos e apoio contínuo.</p>
+  <p><strong>Para escolas:</strong> relatórios e indicadores para ações preventivas.</p>
+  <p><strong>Para famílias:</strong> segurança emocional e acompanhamento profissional.</p>
 </section>
 
 <section id="proposta">
   <h3>Nosso diferencial</h3>
-  <p>Modelo B2B2C, cultura de inovação, ética, IA e impacto social.</p>
+  <p>Plataforma com IA para triagem emocional, apoio psicológico online e parceria com universidades e escolas públicas e privadas.</p>
 </section>
 
 <footer>
   &copy; 2025 EmoTeen • Todos os direitos reservados
 </footer>
 
-<!-- WhatsApp flutuante -->
-<a href="https://wa.me/5511999128663" class="whatsapp-float" target="_blank" aria-label="WhatsApp EmoTeen">
-  <svg viewBox="0 0 24 24" fill="#fff">
-    <path d="M20.52 3.48a11.74 11.74 0 0 0-16.61 0c-4.56 4.56-1.4 11.97 0 13.87l-1.64 5.97 6.12-1.61c1.89.73 10.3 4.56 14.87 0a11.74 11.74 0 0 0 0-16.61zM12 20c-4.5 0-8-3.5-8-8s3.5-8 8-8a7.94 7.94 0 0 1 7.23 4.8 7.94 7.94 0 0 1-1.2 7.73L18 16a1 1 0 0 1 .1.86 4.94 4.94 0 0 1-4 4.13 1 1 0 0 1-.86.1l-2.48-.62A7.88 7.88 0 0 1 12 20zm4.55-5.28c-.25-.13-1.5-.74-1.73-.82-.23-.09-.4-.13-.57.13s-.65.82-.8.99c-.15.17-.3.19-.55.07-.25-.13-1.04-.38-1.97-1.21-.73-.65-1.22-1.44-1.37-1.69-.14-.25-.02-.39.11-.52.11-.12.25-.3.38-.45.13-.15.17-.25.25-.4.07-.15.04-.27-.02-.4-.07-.13-.57-1.37-.78-1.88-.19-.5-.37-.44-.51-.44-.13-.01-.28-.01-.43-.01-.15 0-.39.06-.6.29s-.78.54-.78 1.32c0 .79.8 1.54.9 1.65s1.56 2.37 3.77 3.3c.53.23.94.36 1.27.46.54.18 1.03.16 1.42.1.43-.07 1.33-.5 1.52-1.03.19-.53.19-.98.14-1.05-.04-.06-.17-.1-.34-.18z"/>
-  </svg>
+<!-- Botão flutuante do WhatsApp com imagem -->
+<a href="https://wa.me/5511999128663" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
 </a>
 
 </body>
