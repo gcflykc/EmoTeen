@@ -4,14 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EmoTeen • Saúde emocional para jovens</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --azul-claro: rgb(224, 247, 250);     /* #E0F7FA */
-      --lilas: rgb(122, 95, 192);           /* #7A5FC0 */
-      --verde-menta: rgb(111, 207, 151);    /* #6FCF97 */
-      --texto: rgb(51, 51, 51);             /* #333 */
-      --branco: rgb(255, 255, 255);         /* #fff */
+      --azul-claro: #E0F7FA;
+      --lilas: #7A5FC0;
+      --verde-menta: #6FCF97;
+      --texto: #333;
+      --branco: #fff;
     }
 
     * {
@@ -20,11 +23,48 @@
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
+    html, body {
+      font-family: 'Quicksand', sans-serif;
       background: var(--azul-claro);
       color: var(--texto);
-      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--azul-claro);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    #preloader img {
+      width: 80px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    body.loaded #preloader {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    body.loaded main {
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     header {
@@ -39,19 +79,19 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
     }
 
     .logo {
-      width: 70px;
+      width: 64px;
       height: auto;
     }
 
     header h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 30px;
+      font-size: 32px;
       color: var(--lilas);
-      font-weight: 700;
+      font-weight: 600;
       margin: 0;
     }
 
@@ -64,6 +104,9 @@
       font-size: 32px;
       color: var(--lilas);
       margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeSlideIn 0.8s ease forwards;
+      animation-delay: 0.2s;
     }
 
     .hero p {
@@ -71,6 +114,9 @@
       color: #444;
       max-width: 600px;
       margin: auto;
+      opacity: 0;
+      animation: fadeSlideIn 0.8s ease forwards;
+      animation-delay: 0.4s;
     }
 
     section {
@@ -83,11 +129,17 @@
       font-size: 28px;
       color: var(--verde-menta);
       margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeSlideIn 0.8s ease forwards;
+      animation-delay: 0.6s;
     }
 
     section p {
       font-size: 17px;
       margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeSlideIn 0.8s ease forwards;
+      animation-delay: 0.8s;
     }
 
     .cta {
@@ -100,22 +152,38 @@
     .cta h4 {
       font-size: 24px;
       margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeSlideIn 0.8s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .cta p {
+      opacity: 0;
+      animation: fadeSlideIn 0.8s ease forwards;
+      animation-delay: 1.2s;
     }
 
     .cta a {
       display: inline-block;
       margin-top: 10px;
-      padding: 12px 24px;
-      background: var(--verde-menta);
+      padding: 14px 28px;
+      background: rgb(111, 207, 151);
       color: var(--branco);
       text-decoration: none;
       font-weight: bold;
-      border-radius: 8px;
-      transition: background 0.3s ease;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(111, 207, 151, 0.8),
+                  0 0 18px rgba(122, 95, 192, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: fadeSlideIn 0.8s ease forwards;
+      animation-delay: 1.4s;
     }
 
     .cta a:hover {
-      background: rgb(91, 177, 130);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(111, 207, 151, 1),
+                  0 0 30px rgba(122, 95, 192, 0.8);
     }
 
     footer {
@@ -126,65 +194,102 @@
       color: #666;
     }
 
-    @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 26px;
+    @keyframes fadeSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
       }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
+    @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
+        padding: 15px 20px;
       }
-
       .logo-container {
-        gap: 10px;
-        margin-bottom: 10px;
+        justify-content: center;
+      }
+      .logo {
+        width: 48px;
+      }
+      header h1 {
+        font-size: 24px;
+      }
+      .hero h2 {
+        font-size: 24px;
+      }
+      section {
+        padding: 40px 15px;
+      }
+      .cta {
+        padding: 30px 15px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-container">
-      <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Logo EmoTeen" class="logo" />
-      <h1>EmoTeen</h1>
-    </div>
-  </header>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Carregando...">
+  </div>
 
-  <section class="hero">
-    <h2>Saúde emocional, aprendizado com leveza.</h2>
-    <p>Somos a EmoTeen, uma startup brasileira de healthtech que está inovando a forma como cuidamos da saúde mental de adolescentes nas escolas particulares.</p>
-  </section>
+  <main>
+    <header>
+      <div class="logo-container">
+        <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Logo EmoTeen" class="logo" />
+        <h1>EmoTeen</h1>
+      </div>
+    </header>
 
-  <section id="sobre">
-    <h3>Quem somos?</h3>
-    <p>A EmoTeen nasceu com a missão de combater a crise de saúde mental entre jovens brasileiros. Unimos tecnologia, psicologia e empatia para oferecer um suporte emocional real dentro das escolas.</p>
-    <p>Queremos transformar o ambiente escolar em um espaço seguro, acolhedor e preparado para lidar com ansiedade, estresse, TDAH, insegurança e depressão — de forma leve e acessível.</p>
-  </section>
+    <section class="hero">
+      <h2>Saúde emocional, aprendizado com leveza.</h2>
+      <p>Somos a EmoTeen, uma startup brasileira de healthtech que está inovando a forma como cuidamos da saúde mental de adolescentes nas escolas particulares.</p>
+    </section>
 
-  <section id="beneficios">
-    <h3>Benefícios para escolas e alunos</h3>
-    <p><strong>Para alunos:</strong> Acesso a terapia online, quiz emocional gamificado, diário de humor e escuta ativa com psicólogos reais.</p>
-    <p><strong>Para escolas:</strong> Painel com dados anonimizados, alertas de risco emocional e valor pedagógico agregado à imagem da instituição.</p>
-    <p><strong>Para pais:</strong> Tranquilidade ao saber que seus filhos têm apoio emocional dentro da escola, com ética e segurança.</p>
-  </section>
+    <section id="sobre">
+      <h3>Quem somos?</h3>
+      <p>A EmoTeen nasceu com a missão de combater a crise de saúde mental entre jovens brasileiros. Unimos tecnologia, psicologia e empatia para oferecer um suporte emocional real dentro das escolas.</p>
+      <p>Queremos transformar o ambiente escolar em um espaço seguro, acolhedor e preparado para lidar com ansiedade, estresse, TDAH, insegurança e depressão — de forma leve e acessível.</p>
+    </section>
 
-  <section id="proposta">
-    <h3>Proposta e cultura EmoTeen</h3>
-    <p>Atuamos no modelo B2B2C, conectando escolas particulares ao nosso sistema de saúde emocional. Desenvolvemos uma plataforma segura, moderna e empática, com psicólogos parceiros, IA para triagem e gamificação para engajar os alunos.</p>
-    <p>Acreditamos que saúde mental é tão importante quanto matemática. Nossa cultura é feita de acolhimento, inovação, ética e impacto positivo.</p>
-  </section>
+    <section id="beneficios">
+      <h3>Benefícios para escolas e alunos</h3>
+      <p><strong>Para alunos:</strong> Acesso a terapia online, quiz emocional gamificado, diário de humor e escuta ativa com psicólogos reais.</p>
+      <p><strong>Para escolas:</strong> Painel com dados anonimizados, alertas de risco emocional e valor pedagógico agregado à imagem da instituição.</p>
+      <p><strong>Para pais:</strong> Tranquilidade ao saber que seus filhos têm apoio emocional dentro da escola, com ética e segurança.</p>
+    </section>
 
-  <section class="cta" id="contato">
-    <h4>Queremos transformar sua escola.</h4>
-    <p>Se você é gestor(a) escolar ou investidor(a), entre em contato e venha fazer parte da revolução emocional.</p>
-    <a href="mailto:contato@emoteen.com.br">Fale conosco</a>
-  </section>
+    <section id="proposta">
+      <h3>Proposta e cultura EmoTeen</h3>
+      <p>Atuamos no modelo B2B2C, conectando escolas particulares ao nosso sistema de saúde emocional. Desenvolvemos uma plataforma segura, moderna e empática, com psicólogos parceiros, IA para triagem e gamificação para engajar os alunos.</p>
+      <p>Acreditamos que saúde mental é tão importante quanto matemática. Nossa cultura é feita de acolhimento, inovação, ética e impacto positivo.</p>
+    </section>
 
-  <footer>
-    &copy; 2025 EmoTeen • Todos os direitos reservados
-  </footer>
+    <section class="cta" id="contato">
+      <h4>Queremos transformar sua escola.</h4>
+      <p>Se você é gestor(a) escolar ou investidor(a), entre em contato e venha fazer parte da revolução emocional.</p>
+      <a href="mailto:contato@emoteen.com.br">Fale conosco</a>
+    </section>
+
+    <footer>
+      &copy; 2025 EmoTeen • Todos os direitos reservados
+    </footer>
+  </main>
+
+  <!-- JavaScript para remover preloader após delay -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+      }, 2500);
+    });
+  </script>
 
 </body>
 </html>
