@@ -125,18 +125,30 @@
       margin: auto;
     }
 
+    section:nth-child(even) {
+      background-color: #f0f9ff;
+    }
+
+    section:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
     section h3 {
+      position: relative;
       font-size: 28px;
-      color: var(--verde-menta);
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 0.6s;
+      color: var(--lilas);
+      margin-bottom: 30px;
+      padding-left: 12px;
+      border-left: 5px solid var(--verde-menta);
     }
 
     section p {
-      font-size: 17px;
+      background: #fff;
+      padding: 18px 20px;
+      border-radius: 12px;
       margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(122, 95, 192, 0.08);
+      font-size: 17px;
       opacity: 0;
       animation: fadeSlideIn 0.8s ease forwards;
       animation-delay: 0.8s;
@@ -167,7 +179,7 @@
       display: inline-block;
       margin-top: 10px;
       padding: 14px 28px;
-      background: var(--verde-menta);
+      background: rgb(111, 207, 151);
       color: var(--branco);
       text-decoration: none;
       font-weight: bold;
@@ -186,6 +198,30 @@
                   0 0 30px rgba(122, 95, 192, 0.8);
     }
 
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      padding: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(37, 211, 102, 0.7),
+                  0 0 20px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 24px rgba(37, 211, 102, 1),
+                  0 0 40px rgba(122, 95, 192, 0.6);
+    }
+
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -194,31 +230,6 @@
       color: #666;
     }
 
-/* Botão flutuante WhatsApp com ícone */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  transition: transform 0.2s;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-
-.whatsapp-float img {
-  width: 32px;
-  height: 32px;
-}
     @keyframes fadeSlideIn {
       0% {
         opacity: 0;
@@ -236,21 +247,27 @@
         align-items: flex-start;
         padding: 15px 20px;
       }
+
       .logo-container {
         justify-content: center;
       }
+
       .logo {
         width: 48px;
       }
+
       header h1 {
         font-size: 24px;
       }
+
       .hero h2 {
         font-size: 24px;
       }
+
       section {
         padding: 40px 15px;
       }
+
       .cta {
         padding: 30px 15px;
       }
@@ -278,20 +295,20 @@
     </section>
 
     <section id="sobre">
-      <h3>Quem somos?</h3>
+      <h3>🧠 Quem somos?</h3>
       <p>A EmoTeen nasceu com a missão de combater a crise de saúde mental entre jovens brasileiros. Unimos tecnologia, psicologia e empatia para oferecer um suporte emocional real dentro das escolas.</p>
       <p>Queremos transformar o ambiente escolar em um espaço seguro, acolhedor e preparado para lidar com ansiedade, estresse, TDAH, insegurança e depressão — de forma leve e acessível.</p>
     </section>
 
     <section id="beneficios">
-      <h3>Benefícios para escolas e alunos</h3>
+      <h3>🎓 Benefícios para escolas e alunos</h3>
       <p><strong>Para alunos:</strong> Acesso a terapia online, quiz emocional gamificado, diário de humor e escuta ativa com psicólogos reais.</p>
       <p><strong>Para escolas:</strong> Painel com dados anonimizados, alertas de risco emocional e valor pedagógico agregado à imagem da instituição.</p>
       <p><strong>Para pais:</strong> Tranquilidade ao saber que seus filhos têm apoio emocional dentro da escola, com ética e segurança.</p>
     </section>
 
     <section id="proposta">
-      <h3>Proposta e cultura EmoTeen</h3>
+      <h3>🚀 Proposta e cultura EmoTeen</h3>
       <p>Atuamos no modelo B2B2C, conectando escolas particulares ao nosso sistema de saúde emocional. Desenvolvemos uma plataforma segura, moderna e empática, com psicólogos parceiros, IA para triagem e gamificação para engajar os alunos.</p>
       <p>Acreditamos que saúde mental é tão importante quanto matemática. Nossa cultura é feita de acolhimento, inovação, ética e impacto positivo.</p>
     </section>
@@ -299,7 +316,7 @@
     <section class="cta" id="contato">
       <h4>Queremos transformar sua escola.</h4>
       <p>Se você é gestor(a) escolar ou investidor(a), entre em contato e venha fazer parte da revolução emocional.</p>
-      <a href="mailto:gota7@proton.me">Fale conosco</a>
+      <a href="mailto:contato@emoteen.com.br">Fale conosco</a>
     </section>
 
     <footer>
@@ -308,12 +325,11 @@
   </main>
 
   <!-- Botão WhatsApp -->
-  <!-- Botão flutuante do WhatsApp com imagem -->
-<a href="https://wa.me/5511999128663" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-</a>
+  <a href="https://wa.me/55SEUNUMERO" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
 
-  <!-- JS para remover preloader -->
+  <!-- JavaScript para remover preloader -->
   <script>
     window.addEventListener('load', () => {
       setTimeout(() => {
@@ -321,5 +337,6 @@
       }, 2500);
     });
   </script>
+
 </body>
 </html>
