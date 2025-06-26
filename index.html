@@ -4,15 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EmoTeen • Saúde emocional para jovens</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-<!-- Botão flutuante do WhatsApp -->
-<a href="https://wa.me/5511999128663" target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 32 32" width="26" height="26">
-    <path d="M16 2.933c-7.23 0-13.067 5.837-13.067 13.067 0 2.355.637 4.647 1.843 6.661L2 30l7.531-2.37c1.934 1.13 4.125 1.729 6.469 1.729 7.23 0 13.067-5.837 13.067-13.067S23.23 2.933 16 2.933zm0 23.734c-2.017 0-3.984-.552-5.695-1.598l-.41-.247-4.467 1.406 1.459-4.345-.267-.422c-1.142-1.812-1.748-3.91-1.748-6.043 0-6.225 5.07-11.295 11.295-11.295S27.295 9.475 27.295 15.7 22.225 26.667 16 26.667zm6.037-8.297c-.33-.165-1.954-.96-2.257-1.07-.303-.11-.523-.165-.742.165-.22.33-.855 1.07-1.05 1.29-.192.22-.385.247-.715.082-.33-.165-1.392-.513-2.65-1.635-.98-.873-1.64-1.95-1.833-2.28-.192-.33-.02-.508.145-.673.148-.148.33-.385.495-.577.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.577-.082-.165-.742-1.787-1.017-2.445-.27-.648-.545-.56-.742-.57-.192-.008-.413-.01-.633-.01-.22 0-.577.082-.88.385-.303.303-1.155 1.13-1.155 2.753s1.183 3.19 1.347 3.412c.165.22 2.33 3.557 5.65 4.99.79.34 1.407.543 1.89.694.794.253 1.516.217 2.09.132.637-.095 1.954-.797 2.23-1.567.275-.77.275-1.43.192-1.566-.082-.138-.302-.22-.633-.385z"/>
-  </svg>
-</a>
   <style>
     :root {
       --azul-claro: #E0F7FA;
@@ -21,84 +13,39 @@
       --texto: #333;
       --branco: #fff;
     }
-    
-  .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgb(111, 207, 151);
-    color: white;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 12px rgba(111, 207, 151, 0.8), 0 0 18px rgba(122, 95, 192, 0.4);
-    z-index: 999;
-    text-decoration: none;
-    animation: pulse 2s infinite;
-  }
 
-  .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(111, 207, 151, 1), 0 0 30px rgba(122, 95, 192, 0.6);
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-  }
-</style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
+    body {
       font-family: 'Quicksand', sans-serif;
       background: var(--azul-claro);
       color: var(--texto);
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* Preloader */
+    /* Pré-carregamento */
     #preloader {
       position: fixed;
-      width: 100%;
-      height: 100vh;
-      background-color: var(--azul-claro);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--azul-claro);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: opacity 0.5s ease;
     }
 
-    #preloader img {
-      width: 80px;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.9; }
-      50% { transform: scale(1.1); opacity: 1; }
-    }
-
-    body.loaded #preloader {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    body.loaded main {
-      animation: fadeIn 1s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    #preloader h2 {
+      font-size: 24px;
+      color: var(--lilas);
+      font-weight: bold;
     }
 
     header {
@@ -117,13 +64,13 @@
     }
 
     .logo {
-      width: 64px;
+      width: 60px;
       height: auto;
     }
 
     header h1 {
-      font-family: 'Poppins', sans-serif;
       font-size: 32px;
+      font-family: 'Poppins', sans-serif;
       color: var(--lilas);
       font-weight: 600;
       margin: 0;
@@ -132,15 +79,13 @@
     .hero {
       padding: 60px 20px;
       text-align: center;
+      animation: fadeSlideIn 1s ease-in-out forwards;
     }
 
     .hero h2 {
       font-size: 32px;
       color: var(--lilas);
       margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 0.2s;
     }
 
     .hero p {
@@ -148,32 +93,26 @@
       color: #444;
       max-width: 600px;
       margin: auto;
-      opacity: 0;
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 0.4s;
     }
 
     section {
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
+      opacity: 0;
+      animation: fadeSlideIn 1.2s ease forwards;
+      animation-delay: 1s;
     }
 
     section h3 {
       font-size: 28px;
       color: var(--verde-menta);
       margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 0.6s;
     }
 
     section p {
       font-size: 17px;
       margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 0.8s;
     }
 
     .cta {
@@ -181,43 +120,33 @@
       padding: 40px;
       background: var(--lilas);
       color: var(--branco);
+      opacity: 0;
+      animation: fadeSlideIn 1.2s ease forwards;
+      animation-delay: 1.4s;
     }
 
     .cta h4 {
       font-size: 24px;
       margin-bottom: 10px;
-      opacity: 0;
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 1s;
-    }
-
-    .cta p {
-      opacity: 0;
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 1.2s;
     }
 
     .cta a {
       display: inline-block;
       margin-top: 10px;
-      padding: 14px 28px;
-      background: rgb(111, 207, 151);
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #6FCF97, #7A5FC0, #6FCF97);
+      background-size: 300% 300%;
       color: var(--branco);
       text-decoration: none;
       font-weight: bold;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(111, 207, 151, 0.8),
-                  0 0 18px rgba(122, 95, 192, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      animation: fadeSlideIn 0.8s ease forwards;
-      animation-delay: 1.4s;
+      border-radius: 8px;
+      animation: glow 3s ease infinite;
+      box-shadow: 0 0 10px rgba(122, 95, 192, 0.5);
+      transition: transform 0.3s;
     }
 
     .cta a:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(111, 207, 151, 1),
-                  0 0 30px rgba(122, 95, 192, 0.8);
     }
 
     footer {
@@ -228,38 +157,54 @@
       color: #666;
     }
 
+    /* Animações */
     @keyframes fadeSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes glow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Botão WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    /* Responsivo */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
         padding: 15px 20px;
       }
-      .logo-container {
-        justify-content: center;
-      }
-      .logo {
-        width: 48px;
-      }
-      header h1 {
-        font-size: 24px;
-      }
+
       .hero h2 {
         font-size: 24px;
       }
+
       section {
         padding: 40px 15px;
       }
+
       .cta {
         padding: 30px 15px;
       }
@@ -268,62 +213,61 @@
 </head>
 <body>
 
-  <!-- Preloader -->
-  <div id="preloader">
-    <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Carregando...">
+<div id="preloader"><h2>Carregando...</h2></div>
+
+<header>
+  <div class="logo-container">
+    <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Logo EmoTeen" class="logo" />
+    <h1>EmoTeen</h1>
   </div>
+</header>
 
-  <main>
-    <header>
-      <div class="logo-container">
-        <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" alt="Logo EmoTeen" class="logo" />
-        <h1>EmoTeen</h1>
-      </div>
-    </header>
+<section class="hero">
+  <h2>Saúde emocional, aprendizado com leveza.</h2>
+  <p>Somos a EmoTeen, uma startup brasileira de healthtech que está inovando a forma como cuidamos da saúde mental de adolescentes nas escolas particulares.</p>
+</section>
 
-    <section class="hero">
-      <h2>Saúde emocional, aprendizado com leveza.</h2>
-      <p>Somos a EmoTeen, uma startup brasileira de healthtech que está inovando a forma como cuidamos da saúde mental de adolescentes nas escolas particulares.</p>
-    </section>
+<section id="sobre">
+  <h3>Quem somos?</h3>
+  <p>A EmoTeen nasceu com a missão de combater a crise de saúde mental entre jovens brasileiros. Unimos tecnologia, psicologia e empatia para oferecer um suporte emocional real dentro das escolas.</p>
+  <p>Queremos transformar o ambiente escolar em um espaço seguro, acolhedor e preparado para lidar com ansiedade, estresse, TDAH, insegurança e depressão — de forma leve e acessível.</p>
+</section>
 
-    <section id="sobre">
-      <h3>Quem somos?</h3>
-      <p>A EmoTeen nasceu com a missão de combater a crise de saúde mental entre jovens brasileiros. Unimos tecnologia, psicologia e empatia para oferecer um suporte emocional real dentro das escolas.</p>
-      <p>Queremos transformar o ambiente escolar em um espaço seguro, acolhedor e preparado para lidar com ansiedade, estresse, TDAH, insegurança e depressão — de forma leve e acessível.</p>
-    </section>
+<section id="beneficios">
+  <h3>Benefícios para escolas e alunos</h3>
+  <p><strong>Para alunos:</strong> Acesso a terapia online, quiz emocional gamificado, diário de humor e escuta ativa com psicólogos reais.</p>
+  <p><strong>Para escolas:</strong> Painel com dados anonimizados, alertas de risco emocional e valor pedagógico agregado à imagem da instituição.</p>
+  <p><strong>Para pais:</strong> Tranquilidade ao saber que seus filhos têm apoio emocional dentro da escola, com ética e segurança.</p>
+</section>
 
-    <section id="beneficios">
-      <h3>Benefícios para escolas e alunos</h3>
-      <p><strong>Para alunos:</strong> Acesso a terapia online, quiz emocional gamificado, diário de humor e escuta ativa com psicólogos reais.</p>
-      <p><strong>Para escolas:</strong> Painel com dados anonimizados, alertas de risco emocional e valor pedagógico agregado à imagem da instituição.</p>
-      <p><strong>Para pais:</strong> Tranquilidade ao saber que seus filhos têm apoio emocional dentro da escola, com ética e segurança.</p>
-    </section>
+<section id="proposta">
+  <h3>Proposta e cultura EmoTeen</h3>
+  <p>Atuamos no modelo B2B2C, conectando escolas particulares ao nosso sistema de saúde emocional. Desenvolvemos uma plataforma segura, moderna e empática, com psicólogos parceiros, IA para triagem e gamificação para engajar os alunos.</p>
+  <p>Acreditamos que saúde mental é tão importante quanto matemática. Nossa cultura é feita de acolhimento, inovação, ética e impacto positivo.</p>
+</section>
 
-    <section id="proposta">
-      <h3>Proposta e cultura EmoTeen</h3>
-      <p>Atuamos no modelo B2B2C, conectando escolas particulares ao nosso sistema de saúde emocional. Desenvolvemos uma plataforma segura, moderna e empática, com psicólogos parceiros, IA para triagem e gamificação para engajar os alunos.</p>
-      <p>Acreditamos que saúde mental é tão importante quanto matemática. Nossa cultura é feita de acolhimento, inovação, ética e impacto positivo.</p>
-    </section>
+<section class="cta" id="contato">
+  <h4>Queremos transformar sua escola.</h4>
+  <p>Se você é gestor(a) escolar ou investidor(a), entre em contato e venha fazer parte da revolução emocional.</p>
+  <a href="mailto:contato@emoteen.com.br">Fale conosco</a>
+</section>
 
-    <section class="cta" id="contato">
-      <h4>Queremos transformar sua escola.</h4>
-      <p>Se você é gestor(a) escolar ou investidor(a), entre em contato e venha fazer parte da revolução emocional.</p>
-      <a href="mailto:gota7@proton.me">Fale conosco</a>
-    </section>
+<footer>
+  &copy; 2025 EmoTeen • Todos os direitos reservados
+</footer>
 
-    <footer>
-      &copy; 2025 EmoTeen • Todos os direitos reservados
-    </footer>
-  </main>
+<!-- WhatsApp -->
+<a href="https://wa.me/5511999128663" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+  &#x1F4AC;
+</a>
 
-  <!-- JavaScript para remover preloader após delay -->
-  <script>
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.body.classList.add('loaded');
-      }, 2500);
-    });
-  </script>
+<script>
+  // Remove loader ao carregar
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("preloader");
+    if (loader) loader.style.display = "none";
+  });
+</script>
 
 </body>
 </html>
