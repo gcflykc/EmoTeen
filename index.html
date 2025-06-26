@@ -7,7 +7,12 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-
+<!-- Botão flutuante do WhatsApp -->
+<a href="https://wa.me/5511999128663" target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 32 32" width="26" height="26">
+    <path d="M16 2.933c-7.23 0-13.067 5.837-13.067 13.067 0 2.355.637 4.647 1.843 6.661L2 30l7.531-2.37c1.934 1.13 4.125 1.729 6.469 1.729 7.23 0 13.067-5.837 13.067-13.067S23.23 2.933 16 2.933zm0 23.734c-2.017 0-3.984-.552-5.695-1.598l-.41-.247-4.467 1.406 1.459-4.345-.267-.422c-1.142-1.812-1.748-3.91-1.748-6.043 0-6.225 5.07-11.295 11.295-11.295S27.295 9.475 27.295 15.7 22.225 26.667 16 26.667zm6.037-8.297c-.33-.165-1.954-.96-2.257-1.07-.303-.11-.523-.165-.742.165-.22.33-.855 1.07-1.05 1.29-.192.22-.385.247-.715.082-.33-.165-1.392-.513-2.65-1.635-.98-.873-1.64-1.95-1.833-2.28-.192-.33-.02-.508.145-.673.148-.148.33-.385.495-.577.165-.192.22-.33.33-.55.11-.22.055-.413-.027-.577-.082-.165-.742-1.787-1.017-2.445-.27-.648-.545-.56-.742-.57-.192-.008-.413-.01-.633-.01-.22 0-.577.082-.88.385-.303.303-1.155 1.13-1.155 2.753s1.183 3.19 1.347 3.412c.165.22 2.33 3.557 5.65 4.99.79.34 1.407.543 1.89.694.794.253 1.516.217 2.09.132.637-.095 1.954-.797 2.23-1.567.275-.77.275-1.43.192-1.566-.082-.138-.302-.22-.633-.385z"/>
+  </svg>
+</a>
   <style>
     :root {
       --azul-claro: #E0F7FA;
@@ -16,7 +21,36 @@
       --texto: #333;
       --branco: #fff;
     }
+    
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(111, 207, 151);
+    color: white;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 12px rgba(111, 207, 151, 0.8), 0 0 18px rgba(122, 95, 192, 0.4);
+    z-index: 999;
+    text-decoration: none;
+    animation: pulse 2s infinite;
+  }
 
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(111, 207, 151, 1), 0 0 30px rgba(122, 95, 192, 0.6);
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+</style>
     * {
       margin: 0;
       padding: 0;
