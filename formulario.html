@@ -1,197 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Triagem Emocional</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Triagem EmoTeen</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: #f0f4f8;
-      padding: 40px;
-      max-width: 700px;
-      margin: auto;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f10;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
     }
-
-    h2 {
+    h1 {
       text-align: center;
-      color: #2c3e50;
+      color: #e72cff;
     }
-
+    form {
+      max-width: 500px;
+      margin: 30px auto 0 auto;
+      background-color: #1a1a1d;
+      padding: 25px;
+      border-radius: 12px;
+    }
     label {
-      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #ddd;
     }
-
-    input, select {
+    input[type="text"],
+    input[type="email"],
+    textarea {
       width: 100%;
-      padding: 12px;
-      margin: 8px 0 20px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-sizing: border-box;
-      font-size: 16px;
-    }
-
-    select {
-      background-color: #ffffff;
-      appearance: none;
-      background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-      background-repeat: no-repeat;
-      background-position-x: 98%;
-      background-position-y: center;
-    }
-
-    button {
-      background-color: #3498db;
-      color: white;
-      padding: 14px;
+      padding: 10px;
+      margin-top: 8px;
+      background: #2a2a2d;
       border: none;
       border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
-      transition: background 0.3s ease;
+      color: white;
+      font-size: 14px;
+      resize: vertical;
+      min-height: 40px;
     }
-
-    button:hover {
-      background-color: #2980b9;
+    textarea {
+      min-height: 80px;
     }
-
-    p {
+    button {
       margin-top: 30px;
-      font-size: 18px;
-      color: #2c3e50;
+      padding: 12px 0;
+      background-color: #e72cff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #bf23cc;
     }
   </style>
 </head>
 <body>
-  <h2>🧠 Avaliação Emocional</h2>
-  <form action="enviar.php" method="POST">
-    <label>Nome:</label>
-    <input type="text" name="nome" required>
+  <h1>Triagem EmoTeen</h1>
+  <form action="https://formsubmit.co/gota7@proton.me" method="POST" style="margin-top: 30px;">
+    <!-- Campos ocultos -->
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="box" />
+    <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem! Logo a equipe EmoTeen entrará em contato." />
 
-    <label>Sobrenome:</label>
-    <input type="text" name="sobrenome" required>
+    <label for="nome">Nome do aluno:</label>
+    <input type="text" id="nome" name="Nome do aluno" required />
 
-    <label>Série:</label>
-    <input type="text" name="serie" required>
+    <label for="sobrenome">Sobrenome:</label>
+    <input type="text" id="sobrenome" name="Sobrenome" required />
 
-    <label>Turno:</label>
-    <input type="text" name="turno" required>
+    <label for="serie">Série:</label>
+    <input type="text" id="serie" name="Série" required />
 
-    <label>Telefone do aluno:</label>
-    <input type="tel" name="tel_aluno" required>
+    <label for="turno">Turno:</label>
+    <input type="text" id="turno" name="Turno" required />
 
-    <label>Telefone do responsável:</label>
-    <input type="tel" name="tel_responsavel" required>
+    <label for="telefone_aluno">Telefone do aluno:</label>
+    <input type="text" id="telefone_aluno" name="Telefone do aluno" required />
 
-    <label>Email pessoal:</label>
-    <input type="email" name="email" required>
+    <label for="telefone_responsavel">Telefone do responsável:</label>
+    <input type="text" id="telefone_responsavel" name="Telefone do responsável" required />
 
-    <p><strong>Como você se sente em relação às frases abaixo?</strong></p>
+    <label for="nome_responsavel">Nome do responsável:</label>
+    <input type="text" id="nome_responsavel" name="Nome do responsável" required />
 
-    <!-- Perguntas 1 a 10 -->
-    <label>1. Me sinto triste ou desanimado(a):</label>
-    <select name="q1" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <label for="email">E-mail pessoal:</label>
+    <input type="email" id="email" name="E-mail pessoal" required />
 
-    <label>2. Já pensei em sumir ou desaparecer:</label>
-    <select name="q2" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <label for="escola">Nome da escola:</label>
+    <input type="text" id="escola" name="Nome da escola" required />
 
-    <label>3. Já pensei em me machucar de propósito:</label>
-    <select name="q3" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <!-- Perguntas para o aluno responder escrevendo -->
+    <label for="p1">1. Sinto que a vida não tem sentido. Explique como se sente:</label>
+    <textarea id="p1" name="Pergunta 1" required></textarea>
 
-    <label>4. Sinto que ninguém me entende:</label>
-    <select name="q4" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <label for="p2">2. Tenho vontade de desaparecer ou sumir. Conte mais sobre isso:</label>
+    <textarea id="p2" name="Pergunta 2" required></textarea>
 
-    <label>5. Tenho vontade de desistir de tudo:</label>
-    <select name="q5" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <label for="p3">3. Já pensei em me machucar ou tirar a própria vida. Fale sobre seus pensamentos:</label>
+    <textarea id="p3" name="Pergunta 3" required></textarea>
 
-    <label>6. Me sinto sozinho(a) mesmo com outras pessoas:</label>
-    <select name="q6" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <label for="p4">4. Me sinto sozinho(a) mesmo com outras pessoas por perto. Descreva essa sensação:</label>
+    <textarea id="p4" name="Pergunta 4" required></textarea>
 
-    <label>7. Tenho vontade de chorar sem motivo:</label>
-    <select name="q7" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <label for="p5">5. Tenho dificuldade em sentir prazer nas coisas que gostava. Como isso te afeta?</label>
+    <textarea id="p5" name="Pergunta 5" required></textarea>
 
-    <label>8. Já tive pensamentos sobre morrer:</label>
-    <select name="q8" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <label for="p6">6. Me sinto constantemente triste ou vazio(a). Explique melhor:</label>
+    <textarea id="p6" name="Pergunta 6" required></textarea>
 
-    <label>9. Tenho dificuldade para dormir, comer ou me concentrar:</label>
-    <select name="q9" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <label for="p7">7. Já me machuquei de propósito. Conte o que quiser sobre isso:</label>
+    <textarea id="p7" name="Pergunta 7" required></textarea>
 
-    <label>10. Me sinto cansado(a) de tudo, mesmo sem fazer nada:</label>
-    <select name="q10" required>
-      <option value="">Selecione</option>
-      <option>Sempre</option>
-      <option>Quase sempre</option>
-      <option>Às vezes</option>
-      <option>Quase nunca</option>
-      <option>Nunca</option>
-    </select>
+    <label for="p8">8. Acredito que ninguém se importa comigo de verdade. Fale sobre isso:</label>
+    <textarea id="p8" name="Pergunta 8" required></textarea>
 
-    <button type="submit">Enviar</button>
+    <label for="p9">9. Me sinto culpado(a) o tempo todo. Explique seus sentimentos:</label>
+    <textarea id="p9" name="Pergunta 9" required></textarea>
+
+    <label for="p10">10. Tenho crises de choro ou raiva que não consigo controlar. Fale sobre essas crises:</label>
+    <textarea id="p10" name="Pergunta 10" required></textarea>
+
+    <button type="submit">Enviar Triagem</button>
   </form>
 </body>
 </html>
