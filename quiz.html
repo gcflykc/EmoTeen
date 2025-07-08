@@ -1,192 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz EmoTeen • Triagem emocional</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --azul-claro: #E0F7FA;
-      --lilas: #7A5FC0;
-      --verde-menta: #6FCF97;
-      --texto: #333;
-      --branco: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--azul-claro);
-      color: var(--texto);
-    }
-
-    header {
-      background: var(--branco);
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      border-bottom: 3px solid var(--verde-menta);
-      box-shadow: 0 2px 6px rgba(122, 95, 192, 0.15);
-    }
-
-    .logo {
-      width: 48px;
-      margin-right: 12px;
-    }
-
-    h1 {
-      font-size: 24px;
-      color: var(--lilas);
-    }
-
-    main {
-      max-width: 600px;
-      margin: 40px auto;
-      background: var(--branco);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(122, 95, 192, 0.1);
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 26px;
-      color: var(--lilas);
-      margin-bottom: 20px;
-    }
-
-    form label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-      color: #444;
-    }
-
-    input[type="number"],
-    input[type="text"],
-    textarea,
-    select {
-      width: 100%;
-      padding: 10px;
-      border: 2px solid var(--verde-menta);
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-size: 16px;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background: var(--verde-menta);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #58b07d;
-    }
-
-    .mensagem {
-      margin-top: 20px;
-      background: #d9f7e2;
-      border-left: 6px solid var(--verde-menta);
-      padding: 15px;
-      border-radius: 8px;
-      display: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #666;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Triagem Emocional</title>
 </head>
 <body>
+  <h2>🧠 Avaliação Emocional</h2>
+  <form action="enviar.php" method="POST">
+    <label>Nome:</label><br>
+    <input type="text" name="nome" required><br><br>
 
-  <header>
-    <img src="images/67E79165-240D-48DD-982D-A8913823506C.png" class="logo" alt="Logo">
-    <h1>EmoTeen</h1>
-  </header>
+    <label>Sobrenome:</label><br>
+    <input type="text" name="sobrenome" required><br><br>
 
-  <main>
-    <h2>Quiz emocional</h2>
-    <form id="quizForm">
-      <label>Seu nome:</label>
-      <input type="text" name="nome" required>
+    <label>Série:</label><br>
+    <input type="text" name="serie" required><br><br>
 
-      <label>1. Como você tem se sentido nos últimos dias? (1 = muito mal, 5 = muito bem)</label>
-      <input type="number" name="q1" min="1" max="5" required>
+    <label>Turno:</label><br>
+    <input type="text" name="turno" required><br><br>
 
-      <label>2. Você tem dormido bem? (1 = nunca, 5 = sempre)</label>
-      <input type="number" name="q2" min="1" max="5" required>
+    <label>Telefone do aluno:</label><br>
+    <input type="tel" name="tel_aluno" required><br><br>
 
-      <label>3. Você sente vontade de chorar ou ficar sozinho? (1 = nunca, 5 = sempre)</label>
-      <input type="number" name="q3" min="1" max="5" required>
+    <label>Telefone do responsável:</label><br>
+    <input type="tel" name="tel_responsavel" required><br><br>
 
-      <label>4. Tem dificuldade de se concentrar nas aulas? (1 = não, 5 = sempre)</label>
-      <input type="number" name="q4" min="1" max="5" required>
+    <label>Email pessoal:</label><br>
+    <input type="email" name="email" required><br><br>
 
-      <label>5. Você já fez terapia? Ou já quis fazer?</label>
-      <select name="terapia" required>
-        <option value=""><font color=7A5FC0>Selecione</font></option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-        <option value="Quis fazer, mas não consegui">Quis fazer, mas não consegui</option>
-      </select>
+    <!-- 10 perguntas -->
+    <p><strong>Como você se sente em relação às frases abaixo?</strong></p>
+    <label>1. Me sinto triste ou desanimado(a):</label><br>
+    <select name="q1" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
 
-      <button type="submit">Enviar</button>
+    <!-- repete para as demais perguntas -->
+    <!-- q2 até q10 -->
+    <label>2. Já pensei em sumir ou desaparecer:</label><br>
+    <select name="q2" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
 
-      <div class="mensagem" id="mensagemFinal">
-        Obrigado! Aguarde por uma resposta da nossa gestão 💜
-      </div>
-    </form>
-  </main>
+    <label>3. Já pensei em me machucar de propósito:</label><br>
+    <select name="q3" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
 
-  <footer>
-    &copy; 2025 EmoTeen • Triagem emocional protegida
-  </footer>
+    <label>4. Sinto que ninguém me entende:</label><br>
+    <select name="q4" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
 
-  <script>
-    document.getElementById('quizForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+    <label>5. Tenho vontade de desistir de tudo:</label><br>
+    <select name="q5" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
 
-      const form = event.target;
-      const nome = form.nome.value;
-      const q1 = form.q1.value;
-      const q2 = form.q2.value;
-      const q3 = form.q3.value;
-      const q4 = form.q4.value;
-      const terapia = form.terapia.value;
+    <label>6. Me sinto sozinho(a) mesmo com outras pessoas:</label><br>
+    <select name="q6" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
 
-      const corpoEmail = `
-        Nome: ${nome}
-        1. Como tem se sentido: ${q1}
-        2. Sono: ${q2}
-        3. Solidão ou vontade de chorar: ${q3}
-        4. Concentração nas aulas: ${q4}
-        5. Já fez terapia? ${terapia}
-      `;
+    <label>7. Tenho vontade de chorar sem motivo:</label><br>
+    <select name="q7" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
 
-      const link = `mailto:gota7@proton.me?subject=Respostas Quiz EmoTeen de ${nome}&body=${encodeURIComponent(corpoEmail)}`;
-      window.location.href = link;
+    <label>8. Já tive pensamentos sobre morrer:</label><br>
+    <select name="q8" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
 
-      document.getElementById('mensagemFinal').style.display = 'block';
-      form.reset();
-    });
-  </script>
+    <label>9. Tenho dificuldade para dormir, comer ou me concentrar:</label><br>
+    <select name="q9" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
 
+    <label>10. Me sinto cansado(a) de tudo, mesmo sem fazer nada:</label><br>
+    <select name="q10" required>
+      <option value="">Selecione</option>
+      <option>Sempre</option>
+      <option>Quase sempre</option>
+      <option>Às vezes</option>
+      <option>Quase nunca</option>
+      <option>Nunca</option>
+    </select><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
 </body>
 </html>
