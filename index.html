@@ -118,7 +118,27 @@
       animation: fadeSlideIn 0.8s ease forwards;
       animation-delay: 0.4s;
     }
+.underline {
+  position: relative;
+  color: #fff;
+  font-weight: bold;
+}
 
+.underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: #c084fc;
+  transition: 0.3s ease;
+}
+
+.underline:hover::after {
+  height: 4px;
+  background: #a855f7;
+}
     section {
       padding: 60px 20px;
       max-width: 1000px;
@@ -294,31 +314,31 @@
 
     <section class="hero">
       <h2>Saúde emocional, aprendizado com leveza.</h2>
-      <p>Somos a EmoTeen, a primeira startup brasileira de healthtech que está inovando a forma como cuidamos da saúde mental de adolescentes nas escolas.</p>
+      <p>Somos a EmoTeen, <span class="underline">a primeira startup brasileira</span>de healthtech que está inovando a forma como cuidamos da saúde mental de adolescentes nas escolas.</p>
     </section>
 
     <section id="sobre">
       <h3>🧠 Quem somos?</h3>
-      <p>A EmoTeen nasceu com a missão de combater a crise de saúde mental entre jovens brasileiros. Unimos tecnologia, psicologia e empatia para oferecer um suporte emocional real dentro das escolas com o custo mais justo.</p>
-      <p>Queremos transformar o ambiente escolar em um espaço seguro, acolhedor e preparado para lidar com ansiedade, estresse, TDAH, insegurança e depressão — de forma leve e acessível.</p>
+      <p>A EmoTeen nasceu com a missão de combater a <span class="underline">crise</span>de saúde mental entre jovens brasileiros. Unimos tecnologia, psicologia e empatia para oferecer um suporte emocional real dentro das escolas com o custo mais justo.</p>
+      <p>Queremos transformar o ambiente escolar em um espaço seguro, acolhedor e preparado para lidar com ansiedade, estresse, TDAH, insegurança e depressão — de forma <span class="underline">leve e acessível</span>.</p>
     </section>
 
     <section id="beneficios">
       <h3>🎓 Benefícios para escolas e alunos</h3>
-      <p><strong>Para alunos:</strong> Acesso a terapia online, quiz emocional gamificado, escuta ativa com psicólogos reais.</p>
-      <p><strong>Para escolas:</strong> Ratórios de cada perfil (verde, amarelo e vermelho), alertas de risco emocional e valor pedagógico agregado à imagem da instituição.</p>
+      <p><strong>Para alunos:</strong> Acesso a <span class="underline">terapia online</span>, quiz emocional gamificado, escuta ativa com <span class="underline">psicólogos</span> reais.</p>
+      <p><strong>Para escolas:</strong> Ratórios de cada perfil (<span class="underline">verde, amarelo e vermelho</span>), alertas de risco emocional e <span class="underline">valor pedagógico</span>agregado à imagem da instituição.</p>
       <p><strong>Para pais:</strong> Tranquilidade ao saber que seus filhos têm apoio emocional dentro da escola, com ética e segurança.</p>
     </section>
 
     <section id="proposta">
       <h3>🚀 Proposta e cultura EmoTeen</h3>
-      <p>Atuamos no modelo B2B2C, conectando escolas ao nosso sistema de saúde emocional. Desenvolvemos uma plataforma segura, moderna e empática, com psicólogos parceiros, triagem e gamificação para engajar os alunos.</p>
-      <p>Acreditamos que saúde mental é tão importante quanto matemática. Nossa cultura é feita de acolhimento, inovação, ética e impacto positivo.</p>
+      <p>Atuamos no modelo B2B2C, conectando escolas ao nosso sistema de saúde emocional. Te damos acesso a uma plataforma segura, moderna e empática, com a filtragem dos alunos de risco pelo nosso quiz e encaminhamos para psicólogos parceiros, triagem e gamificação para engajar os alunos.</p>
+      <p>Acreditamos que saúde mental é tão <span class="underline">importante </span>quanto matemática. Nossa cultura é feita de acolhimento, inovação, ética e impacto positivo.</p>
     </section>
 
     <section class="cta" id="contato">
      
-      <p>Se você é gestor(a) escolar, entre em contato e venha fazer parte da revolução emocional.</p>
+      <p>Se você é gestor(a) escolar, entre em contato e <span class="underline">venha fazer parte da revolução emocional</span>.</p>
       <a href="mailto:gota7@proton.me">Fale conosco</a>
     </section>
 
