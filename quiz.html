@@ -331,9 +331,28 @@ textarea:hover {
   </section>
   <script>
     // Debug opcional
-    document.querySelector('form').addEventListener('submit', function(event) {
-      console.log('Dados do formulário:', Object.fromEntries(new FormData(this)));
+    <script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const action = form.action;
+
+    const response = await fetch(action, {
+      method: "POST",
+      body: data,
     });
+
+    const result = await response.json();
+
+    if (result.status === "success") {
+      window.location.href = "https://emo-teen.vercel.app/obrigado.html";
+    } else {
+      alert("Erro ao enviar. Tente novamente.");
+    }
+  });
+</script>
   </script>
 </body>
 </html>
