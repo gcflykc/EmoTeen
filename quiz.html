@@ -164,7 +164,10 @@ textarea:hover {
     <div class="container">
       <h2>Avaliação EmoTeen</h2>
       <p>Preencha o formulário para ajudar nossos terapeutas a entender melhor o aluno. Retornaremos com uma análise personalizada.</p>
-      <form action="https://script.google.com/macros/s/AKfycbxe_8HkjusmXAKjfPRTjjVrZB9nifHMpBAWh545Bocyeg547yvvK3wMUZoIYDiS1Kex/exec" method="POST">
+      <form action="https://script.google.com/macros/s/AKfycbxe_8HkjusmXAKjfPRTjjVrZB9nifHMpBAWh545Bocyeg547yvvK3wMUZoIYDiS1Kex/exec" 
+      method="POST" 
+      target="_self" 
+      onsubmit="window.location.href='https://emo-teen.vercel.app/obrigado.html';">
         <div class="form-group">
           <label for="nome_aluno">Nome do Aluno</label>
           <input type="text" id="namnome_aluno" name="nome_aluno" placeholder="Digite o nome do aluno" required>
@@ -329,31 +332,5 @@ textarea:hover {
       </form>
     </div>
   </section>
-<script>
-  const form = document.querySelector("form");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const data = new FormData(form);
-    const action = form.action;
-
-    try {
-      const response = await fetch(action, {
-        method: "POST",
-        body: data,
-      });
-
-      if (response.ok) {
-        window.location.href = "https://emo-teen.vercel.app/obrigado.html";
-      } else {
-        alert("Erro ao enviar. Tente novamente.");
-      }
-    } catch (error) {
-      console.error("Erro na submissão:", error);
-      alert("Erro ao enviar. Verifique sua conexão.");
-    }
-  });
-</script>
 </body>
 </html>
